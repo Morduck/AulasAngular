@@ -1,3 +1,10 @@
-<p>
-  car-parts works!
-</p>
+<p>There are {{ totalCarParts() }} total car parts in stock.</p>
+<ul>
+  <li *ngFor='let carPart of carParts'>
+    <h2>{{ carPart.name | uppercase }}</h2>
+    <p>{{ carPart.description }}</p>
+    <p>{{ carPart.price | currency:'EUR'}}</p>
+    <p *ngIf="carPart.inStock > 0">{{ carPart.inStock }} in stock</p>
+    <p *ngIf="carPart.inStock === 0">Out of stock</p>
+  </li>
+</ul>
