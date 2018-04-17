@@ -31,4 +31,12 @@ export class AppComponent {
       price: 24.99
     }
   ]
+
+  totalCarParts(): number{
+    let num = 0;
+    for (let part of this.carParts) {
+      num += part.inStock; 
+    }
+    return num;
+  }
 }
