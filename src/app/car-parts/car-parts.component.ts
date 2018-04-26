@@ -9,7 +9,6 @@ import { CARPARTS } from './mock';
 })
 export class CarPartsComponent implements OnInit {
   private carParts: CarPart[];
-
   constructor() { }
 
   ngOnInit() {
@@ -22,5 +21,25 @@ export class CarPartsComponent implements OnInit {
       num += part.inStock; 
     }
     return num;
+  }
+
+  upQuantity(carPart){
+    if (carPart.quantity < carPart.inStock){
+      carPart.quantity++;
+    }
+  }
+
+  downQuantity(carPart){
+    if (carPart.quantity != 0){
+      carPart.quantity--;
+    }
+  }
+
+  selectPart(carPart){
+    carPart.featured = true;
+  }
+
+  unselectPart(carPart){
+    carPart.featured = false;
   }
 }
