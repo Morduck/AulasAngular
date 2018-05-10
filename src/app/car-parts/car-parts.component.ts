@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CarPart } from "./car-part";
-import { CARPARTS } from './mock';
+import { RacingDataService } from './racing-data.service';
 
 @Component({
   selector: 'app-car-parts',
@@ -9,10 +9,11 @@ import { CARPARTS } from './mock';
 })
 export class CarPartsComponent implements OnInit {
   private carParts: CarPart[];
-  constructor() { }
+
+  constructor(private api: RacingDataService) { }
 
   ngOnInit() {
-    this.carParts = CARPARTS;
+    this.api.getCarParts().subscribe(data => this.carParts = data);
   }
 
   totalCarParts(): number{
