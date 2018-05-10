@@ -1,5 +1,5 @@
 /* This would be bootstrap-custom.css */
-
+@import '~bootstrap/dist/css/bootstrap.css';
 /* ----- Custom Theme ----- */
 
 html {

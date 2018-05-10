@@ -14,12 +14,15 @@ export class WeatherComponent implements OnInit {
 
   ngOnInit() {
     this.imgPath = 'http://openweathermap.org/img/w/';
-    this.api.getCurrentWeather().subscribe(
+    this.initWeather('Fafe', 'PT')
+  }
+
+  initWeather(city, country){
+    this.api.getCurrentWeather(city, country).subscribe(
       data =>{
         this.weather = data;
         console.log(data)
       }
     )
   }
-
 }
